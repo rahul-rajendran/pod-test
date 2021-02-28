@@ -6,7 +6,6 @@ while read line
 do
 
     IP=$(echo $line | awk '{print $7}')
-    #echo "ip is $IP"
     curlIP=$(curl http://${IP}:8080 2>&1 > /dev/null)
 
     if [[ $curlIP == *"No route to host"* ]]; then
